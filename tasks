@@ -1,0 +1,34 @@
+--SELECT *
+--FROM nomnom
+--Your coworker Trey can’t remember the exact name of a restaurant he went to but he knows it contains the word ‘meatball’ in it."
+--WHERE name LIKE '%meatball%';
+
+--Find all the close by spots in Midtown, Downtown or Chinatown.
+--WHERE neighborhood = "Midtown"
+    --OR neighborhood = 'Downtown'
+    --OR neighborhood = 'Chinatown'; 
+
+
+--Find all the health grade pending restaurants (empty values).
+    --WHERE health IS NULL;
+
+--Create a Top 10 Restaurants Ranking based on reviews.
+--ORDER BY review DESC
+--LIMIT 10;
+--Use a CASE statement to change the rating system to:
+
+--review > 4.5 is Extraordinary
+--review > 4 is Excellent
+---review > 3 is Good
+--review > 2 is Fair
+--Everything else is Poor
+--Don’t forget to rename the new column!
+SELECT name,
+CASE
+  WHEN review > 4.5 THEN 'Extraordinary'
+  WHEN review > 4 THEN 'Excellent'
+  WHEN review > 3 THEN 'Good'
+  WHEN review > 2 THEN 'Fair'
+  ELSE 'Poor'
+END AS new_rating
+FROM nomnom;
